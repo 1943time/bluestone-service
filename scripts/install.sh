@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -OL  https://github.com/1943time/bs-service/releases/latest/download/bluestone-service.tar.gz
+curl -OL  https://github.com/1943time/bluestone-service/releases/latest/download/bluestone-service.tar.gz
 tar zxf bluestone-service.tar.gz
 rm -rf bluestone-service.tar.gz
 cd bluestone-service

@@ -78,11 +78,11 @@ export async function DELETE(req: NextRequest) {
 }
 // upgrade
 export async function POST(req: NextRequest) {
-  if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
+  // if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
   try {
     execSync('curl -OL https://github.com/1943time/bluestone-service/releases/latest/download/bluestone-service.tar.gz', {cwd: process.cwd()})
     execSync('tar zvxf bluestone-service.tar.gz', {cwd: process.cwd()})
-    exec('node bluestone-service/scripts/upgrade.js', {cwd: process.cwd()})
+    exec('node dist/scripts/upgrade.js', {cwd: process.cwd()})
     return NextResponse.json({success: true})
   } catch (e: any) {
     return NextResponse.json({message: `Upgrade failed：${e?.message},${e.stack}`})

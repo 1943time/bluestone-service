@@ -12,7 +12,7 @@ cpSync(join(__dirname, '../prisma/schema.prisma'), join(root, 'prisma/schema.pri
 cpSync(__dirname, join(root, 'scripts'), {force: true, recursive: true})
 cpSync(join(__dirname, '../ecosystem.config.js'), join(root, 'ecosystem.config.js'), {force: true})
 rmSync(join(root, 'bluestone-service.tar.gz'), {force: true})
-rmSync(join(root, 'bluestone-service'), {force: true, recursive: true})
+rmSync(join(root, 'dist'), {force: true, recursive: true})
 setTimeout(() => {
   execSync('pm2 restart bluestone', {cwd: root})
 }, 500)

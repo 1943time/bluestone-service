@@ -1,0 +1,152 @@
+import 'client-only'
+import {createContext} from 'react'
+import * as Katex from 'katex'
+let collects: {value: string, lang: string, cb: (code: string) => void}[] = []
+export const highlight = async (theme?: any) => {
+  if (collects.length) {
+    const langs =  Array.from(new Set(collects.map(c => c.lang))) as string[]
+    const {getHighlighter, langSet} = await import('shiki').then(res => {
+      return {
+        getHighlighter: res.getHighlighter,
+        langSet: new Set(res.BUNDLED_LANGUAGES.map(l => [l.id, ...(l.aliases || [])]).flat(2))
+      }
+    })
+
+    const highlighter = await getHighlighter({
+      theme: theme || 'material-theme-palenight',
+      langs: langs.filter(l => langSet.has(l)) as any,
+      paths: {
+        wasm: `/shiki/`,
+        themes: `/shiki/themes/`,
+        languages: `/shiki/languages/`
+      }
+    })
+    for (let c of collects) {
+      if (!langSet.has(c.lang)) continue
+      try {
+        c.cb(highlighter.codeToHtml(c.value, {
+          lang: c.lang
+        }))
+      } catch (e) {
+        console.error('highlighter fail', e)
+      }
+    }
+    collects = []
+  }
+}
+
+export const collect = (data: typeof collects[number]) => {
+  collects.push(data)
+}
+
+let k: typeof Katex
+export const getKatex = async () => {
+  if (k) return k
+  k = await import('./ui/render/loadKatex').then(res => {
+    // @ts-ignore
+    return res.Katex.default
+  })
+  return k
+}
+export async function copyToClipboard(text: string) {
+  try {
+    return navigator.clipboard.writeText(text)
+  } catch {
+    const element = document.createElement('textarea')
+    const previouslyFocusedElement = document.activeElement
+
+    element.value = text
+
+    // Prevent keyboard from showing on mobile
+    element.setAttribute('readonly', '')
+
+    element.style.contain = 'strict'
+    element.style.position = 'absolute'
+    element.style.left = '-9999px'
+    element.style.fontSize = '12pt' // Prevent zooming on iOS
+
+    const selection = document.getSelection()
+    const originalRange = selection
+      ? selection.rangeCount > 0 && selection.getRangeAt(0)
+      : null
+
+    document.body.appendChild(element)
+    element.select()
+
+    // Explicit selection workaround for iOS
+    element.selectionStart = 0
+    element.selectionEnd = text.length
+
+    document.execCommand('copy')
+    document.body.removeChild(element)
+
+    if (originalRange) {
+      selection!.removeAllRanges() // originalRange can't be truthy when selection is falsy
+      selection!.addRange(originalRange)
+    }
+
+    // Get the focus back on the previously focused element, if any
+    if (previouslyFocusedElement) {
+      ;(previouslyFocusedElement as HTMLElement).focus()
+    }
+  }
+}
+
+export const DocCtx = createContext<{
+  context?: {
+    secret: '',
+
+  }
+  theme?: string
+  openMenu: boolean
+  openSearch: boolean
+  showOutLine?: boolean
+  setState: (state: {theme?: string, openMenu?: boolean, openSearch?: boolean, showOutLine?: boolean}) => void
+  preferences?: Record<any, any>,
+}>({
+  openMenu: false,
+  openSearch: false,
+  setState: () => {}
+})
+
+export const EnvCtx = createContext({
+  ['home-site']: '',
+  ['favicon']: ''
+})
+
+export const TreeContext = createContext({
+  openKeys: [] as string[],
+  currentPath: '',
+  map: [] as any[],
+  docs: [] as any[],
+  position: '',
+  setState: (state: {position?: string, openSearch?: boolean}) => {},
+  toPosition: (position: string) => {},
+  selectPath: (path: string) => {},
+  togglePath: (path: string) => {},
+  toFirstChapter: () => {}
+})
+
+
+export const isDark = () => window.matchMedia && window.matchMedia?.("(prefers-color-scheme: dark)").matches
+
+
+export const sizeUnit = (size: string | number) => {
+  size = +size
+  if (size > 1024 * 1024) return (size / 1024 / 1024).toFixed(2) + ' gb'
+  if (size > 1024) return (size / 1024).toFixed(2) + ' mb'
+  return size + ' kb'
+}
+
+export const isMobile = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+
+export const isMac = () => /macintosh|mac os x/i.test(navigator.userAgent)
+
+export const getOffsetBody = (el: HTMLElement) => {
+  let top = 0
+  while (el.offsetParent) {
+    top += el.offsetTop
+    el = el.offsetParent as HTMLElement
+  }
+  return top
+}

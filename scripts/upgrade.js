@@ -1,0 +1,18 @@
+const {join}  = require('path')
+const {rmSync, cpSync, readFileSync, writeFileSync }  = require('fs')
+const {execSync} = require('child_process')
+const root = join(__dirname, '../..')
+const json = JSON.parse(readFileSync(join(__dirname, '../package.json'), {encoding: 'utf-8'}))
+const oldJson = JSON.parse(readFileSync(join(root, 'package.json'), {encoding: 'utf-8'}))
+oldJson.version = json.version
+writeFileSync(join(root, 'package.json'), JSON.stringify(oldJson, null, 2), {encoding: 'utf-8'})
+rmSync(join(root, '.next'), {force: true, recursive: true})
+cpSync(join(__dirname, '../.next'), join(root, '.next'), {recursive: true, force: true})
+cpSync(join(__dirname, '../prisma/schema.prisma'), join(root, 'prisma/schema.prisma'), {force: true})
+cpSync(__dirname, join(root, 'scripts'), {force: true, recursive: true})
+cpSync(join(__dirname, '../ecosystem.config.js'), join(root, 'ecosystem.config.js'), {force: true})
+rmSync(join(root, 'bluestone-service.tar.gz'), {force: true})
+rmSync(join(root, 'bluestone-service'), {force: true, recursive: true})
+setTimeout(() => {
+  execSync('pm2 restart bluestone', {cwd: root})
+}, 500)

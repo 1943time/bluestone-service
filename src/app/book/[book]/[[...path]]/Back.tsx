@@ -9,7 +9,7 @@ export function BackToFirst() {
     <div className={'flex justify-center mt-20 flex-col items-center'}>
       <div className={'flex items-center'}>
         <img src={env.favicon} className={'w-6 h-6 mr-2'}/>
-        <span className={'text-xl font-semibold mt-5'}>Document not found</span>
+        <span className={'text-xl font-semibold'}>Document not found</span>
       </div>
       <span
         className={'mt-2 text-sm text-sky-500 duration-200 dark:hover:text-sky-600 cursor-pointer hover:text-sky-400'}

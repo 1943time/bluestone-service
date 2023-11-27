@@ -127,7 +127,7 @@ function Render(props: {
               </span>
             }
             {s.type === 'footnoteDefinition' &&
-              <div data-index={path.join('-')}>
+              <div data-index={path.join('-')} className={'mb-4'}>
                 <p>
                   <span
                     data-fnd="fnd"

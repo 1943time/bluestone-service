@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
     const page = +(req.nextUrl.searchParams.get('page') || 1)
     const pageSize = +(req.nextUrl.searchParams.get('pageSize') || 1)
     const where:Prisma.BookWhereInput = {}
-    if (req.nextUrl.searchParams.get('all') === 'true') where.deviceId = deviceId
+    if (req.nextUrl.searchParams.get('all')) where.deviceId = deviceId
     const list = await prisma.book.findMany({
       where,
       select: {id: true, name: true, filePath: true, path: true, views: true, device: {select: {name: true}}, config: true},

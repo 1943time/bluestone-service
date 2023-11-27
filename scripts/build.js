@@ -29,7 +29,7 @@ const packageJson = {
   name: 'bluestone',
   version: pkjson.version,
   scripts: {
-    start: 'next start',
+    start: 'next start -p 80',
     init: "node scripts/initial.js"
   },
   bluestone: pkjson.bluestone,

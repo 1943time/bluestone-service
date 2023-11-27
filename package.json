@@ -11,7 +11,7 @@
   },
   "bluestone": {
     "secret": "BLUESTONE",
-    "home-site": "https://github.com/1943time/bluestone",
+    "home-site": "",
     "favicon": "/favicon.png"
   },
   "dependencies": {

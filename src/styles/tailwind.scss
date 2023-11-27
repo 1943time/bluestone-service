@@ -58,6 +58,7 @@ html {
     }
 
     .heading {
+      @apply border-b dark:border-gray-200/10 border-gray-200;
       &:before {
         content: '#';
         display: block;

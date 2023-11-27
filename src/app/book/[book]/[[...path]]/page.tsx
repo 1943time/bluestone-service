@@ -10,9 +10,13 @@ const getChapter = async (bookPath: string, path: string) => {
     where: {
       book: {path: bookPath}, path
     },
-    select: {schema: true}
+    select: {schema: true, bookId: true}
   })
   if (chapter) {
+    await prisma.book.update({
+      where: {id: chapter.bookId},
+      data: {views: {increment: 1}}
+    })
     return {schema: JSON.parse(chapter.schema)}
   }
   return null

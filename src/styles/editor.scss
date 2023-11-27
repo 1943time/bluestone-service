@@ -271,6 +271,7 @@ ol.m-list {
     word-spacing: normal;
     word-break: normal;
     hyphens: none;
+    padding-left: 20px;
   }
   .code-line-list{
     background: var(--md-code-bg);
@@ -301,14 +302,11 @@ ol.m-list {
   }
   &.num {
     code{
-      padding-left: 48px;
+      padding-left: 44px;
     }
   }
-  code{
-    padding-left: 24px;
-  }
   .code-line {
-    padding-right: 24px;
+    padding-right: 20px;
     position: relative;
     //width: calc(100% + 24px);
   }

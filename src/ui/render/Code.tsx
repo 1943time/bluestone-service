@@ -31,7 +31,7 @@ export function Code(props: {
   
   return (
     <div
-      className={`group tab-${ctx.preferences?.codeTabSize || 4} code-highlight`}>
+      className={`group tab-${ctx.preferences?.codeTabSize || 4} code-highlight ${ctx.preferences?.codeLineNumber ? 'num' : ''}`}>
       <div
         className={`absolute z-10 right-2 top-1 flex items-center select-none group-hover:hidden`}>
         <div

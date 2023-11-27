@@ -8,13 +8,14 @@ import prisma from '@/app/api/prisma'
 import {BsContext} from '@/app/ctx'
 import {redirect} from 'next/navigation'
 import {parse} from 'path'
+import upath from 'upath'
 export async function generateMetadata(props: {params: any}): Promise<Metadata> {
   const doc = await prisma.doc.findUnique({
     where: {name: props.params.path},
     select: {filePath: true}
   })
   return {
-    title: doc ? '3' + parse(doc.filePath).name : ''
+    title: doc ? parse(upath.toUnix(doc.filePath)).name : ''
   }
 }
 
@@ -35,7 +36,7 @@ async function getData(name: string) {
     return {
       password: !!doc.password,
       name: doc.name,
-      docName: parse(doc.filePath).name,
+      docName: parse(upath.toUnix(doc.filePath)).name,
       schema: JSON.parse(doc.schema),
       preferences
     }

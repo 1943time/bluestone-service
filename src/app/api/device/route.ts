@@ -2,7 +2,7 @@ import {NextRequest, NextResponse} from 'next/server'
 import prisma from '@/app/api/prisma'
 import {join} from 'path'
 import {publicPath, verifySign} from '@/app/api/utils'
-import {createWriteStream, existsSync, rmSync} from 'fs'
+import {existsSync} from 'fs'
 import {unlink} from 'fs/promises'
 import {exec, execSync} from 'child_process'
 

@@ -141,13 +141,17 @@ export function Header(props: {
               </div>
             </div>
           </div>
-          <div className={'h-5 w-[1px] dark:bg-gray-200/20 bg-gray-200 ml-1 mr-3'}></div>
-          <Link
-            href={env['home-site']}
-            className={'w-7 h-7 flex items-center justify-center'} target={'_blank'}>
-            <img src={env.favicon} alt=""
-                 className={`w-6 h-6 dark:shadow-none shadow shadow-gray-300 rounded dark:grayscale duration-300 dark:hover:grayscale-0`}/>
-          </Link>
+          {env['home-site'] &&
+            <>
+              <div className={'h-5 w-[1px] dark:bg-gray-200/20 bg-gray-200 ml-1 mr-3'}></div>
+              <Link
+                href={env['home-site']}
+                className={'w-7 h-7 flex items-center justify-center'} target={'_blank'}>
+                <img src={env.favicon} alt=""
+                     className={`w-6 h-6 dark:shadow-none shadow shadow-gray-300 rounded dark:grayscale duration-300 dark:hover:grayscale-0`}/>
+              </Link>
+            </>
+          }
         </div>
       </div>
     </header>

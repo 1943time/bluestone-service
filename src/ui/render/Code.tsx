@@ -64,7 +64,7 @@ export function Code(props: {
           </div>
         </div>
       }
-      {!!ctx.preferences?.codeLineNum &&
+      {!!ctx.preferences?.codeLineNumber &&
         <div className={'code-line-list'}>
           {Array.from(new Array(props.node.code.split('\n').length)).map((c, i) =>
             <div key={i}/>

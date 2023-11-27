@@ -58,7 +58,7 @@ html {
     }
 
     .heading {
-      @apply border-b dark:border-gray-200/10 border-gray-200;
+      @apply border-b dark:border-gray-200/10 border-gray-200 py-2;
       &:before {
         content: '#';
         display: block;

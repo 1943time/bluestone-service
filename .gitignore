@@ -40,3 +40,4 @@ prisma/data.db
 
 public/files
 public/shiki
+.idea

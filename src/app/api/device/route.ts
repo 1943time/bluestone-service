@@ -76,9 +76,10 @@ export async function DELETE(req: NextRequest) {
   })
   return NextResponse.json({success: true})
 }
+
 // upgrade
 export async function POST(req: NextRequest) {
-  // if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
+  if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
   try {
     execSync('curl -OL https://github.com/1943time/bluestone-service/releases/latest/download/bluestone-service.tar.gz', {cwd: process.cwd()})
     execSync('tar zvxf bluestone-service.tar.gz', {cwd: process.cwd()})
@@ -86,5 +87,36 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({success: true})
   } catch (e: any) {
     return NextResponse.json({message: `Upgrade failed：${e?.message},${e.stack}`})
+  }
+}
+
+export async function PUT(req: NextRequest) {
+  if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
+  const deviceId = req.headers.get('device-id')!
+  const data:{
+    mode: 'updateDocs' | 'updateBooks',
+    files: {from: string, to: string}[]
+  } = await req.json()
+  if (data.mode === 'updateDocs') {
+    let docs: any[] = []
+    for (let f of data.files) {
+      docs.push(await prisma.doc.update({
+        where: {deviceId_filePath: {filePath: f.from, deviceId}},
+        data: {filePath: f.to},
+        select: {id: true, filePath: true, modifyTime: true, hash: true, name: true, views: true}
+      }))
+    }
+    return NextResponse.json({docs})
+  }
+  if (data.mode === 'updateBooks') {
+    let books:any[] = []
+    for (let f of data.files) {
+      books.push(await prisma.book.update({
+        where: {deviceId_filePath: {filePath: f.from, deviceId}},
+        data: {filePath: f.to},
+        select: {id: true, path: true, name: true, filePath: true, config: true}
+      }))
+    }
+    return NextResponse.json({books})
   }
 }

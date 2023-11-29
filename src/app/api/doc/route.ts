@@ -7,11 +7,11 @@ import {unlink} from 'fs/promises'
 import {Prisma} from '@prisma/client'
 
 export async function GET(req: NextRequest) {
-  if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
+  if (!await verifySign(req)) return NextResponse.json({message: 'Incorrect signature'}, {status: 403})
   const deviceId = req.headers.get('device-id')!
   const page = +(req.nextUrl.searchParams.get('page') || 1)
   const pageSize = +(req.nextUrl.searchParams.get('pageSize') || 1)
-  const where:Prisma.DocWhereInput = {}
+  const where: Prisma.DocWhereInput = {}
   if (req.nextUrl.searchParams.get('all')) where.deviceId = deviceId
   const list = await prisma.doc.findMany({
     where,
@@ -24,8 +24,9 @@ export async function GET(req: NextRequest) {
     list, total
   })
 }
+
 export async function POST(req: NextRequest) {
-  if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
+  if (!await verifySign(req)) return NextResponse.json({message: 'Incorrect signature'}, {status: 403})
   const deviceId = req.headers.get('device-id')!
   const data: { filePath: string } = await req.json()
   let doc = await prisma.doc.findUnique({
@@ -56,11 +57,11 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
-  if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
-  const data:{
+  if (!await verifySign(req)) return NextResponse.json({message: 'Incorrect signature'}, {status: 403})
+  const data: {
     id: string, schema: string, remove: string[], hash: string
   } = await req.json()
-  
+
   await prisma.$transaction(async ctx => {
     const doc = await ctx.doc.update({
       where: {id: data.id},
@@ -91,7 +92,7 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  if (!await verifySign(req)) return NextResponse.json({message:  'Incorrect signature'}, {status: 403})
+  if (!await verifySign(req)) return NextResponse.json({message: 'Incorrect signature'}, {status: 403})
   const id = req.nextUrl.searchParams.get('id')!
   await prisma.$transaction(async ctx => {
     const doc = await ctx.doc.findUnique({

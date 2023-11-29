@@ -1,10 +1,9 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import {join} from 'path'
-import {readFile} from 'fs/promises'
+import type {Metadata} from 'next'
+import {Inter} from 'next/font/google'
 import '../styles/editor.scss'
-import {BsContext, EnvContext} from '@/app/ctx'
+import {EnvContext} from '@/app/ctx'
 import {getEnvs} from '@/app/env'
+
 const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: '',

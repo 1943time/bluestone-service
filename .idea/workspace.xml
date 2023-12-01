@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021b72d0-dce8-43a4-b6e4-39be01f00153" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="021b72d0-dce8-43a4-b6e4-39be01f00153" name="Changes" comment="feat: Automatic synchronization service for file path changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/device/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/device/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/book/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/book/route.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/api/doc/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/doc/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/file/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/file/route.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +71,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701254397387</updated>
-      <workItem from="1701254398641" duration="6155000" />
+      <workItem from="1701254398641" duration="7526000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: Automatic synchronization service for file path changes">
+      <option name="closed" value="true" />
+      <created>1701271517345</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701271517345</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="feat: Automatic synchronization service for file path changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Automatic synchronization service for file path changes" />
   </component>
 </project>

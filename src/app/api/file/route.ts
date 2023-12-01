@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
   const page = +(query.page || 1)
   const pageSize = +(query.pageSize || 1)
   const where: Prisma.FileWhereInput = {}
-  if (query.all) where.deviceId = deviceId
+  if (!query.all) where.deviceId = deviceId
   if (req.nextUrl.searchParams.get('docId')) where.docId = req.nextUrl.searchParams.get('docId')!
   if (req.nextUrl.searchParams.get('bookId')) where.bookId = req.nextUrl.searchParams.get('bookId')!
   const total = await prisma.file.count({where})

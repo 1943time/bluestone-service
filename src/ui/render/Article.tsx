@@ -4,6 +4,7 @@ import {escapeScript, getId, getNodeString} from '@/common'
 import {CodeContainer} from '@/ui/render/CodeContainer'
 import {Media} from '@/ui/render/Media'
 import dynamic from 'next/dynamic'
+import {ALink} from '@/ui/render/Link'
 const Katex = dynamic(() => import('./Katex'))
 const getText = (node: any, prePath?: string) => {
   let text = node.text
@@ -30,10 +31,11 @@ const getText = (node: any, prePath?: string) => {
   if (node.bold) text = <strong>{text}</strong>
   if (node.code) text = <code className="inline-code">{text}</code>
   if (node.italic) text = <i>{text}</i>
-  if (node.url) text = <Link
-    href={/^[a-zA-Z]:\/\//.test(node.url) ? node.url : `${node.url}`} target={node.url.startsWith('http') ? '_blank' : ''}
-    rel={'noreferrer'}
-    className={'text-sky-500 dark:hover:text-sky-600 duration-200 hover:text-sky-400'}>{text}</Link>
+  // if (node.url) text = <Link
+  //   href={/^[a-zA-Z]:\/\//.test(node.url) ? node.url : `${node.url}`} target={node.url.startsWith('http') ? '_blank' : ''}
+  //   rel={'noreferrer'}
+  //   className={'text-sky-500 dark:hover:text-sky-600 duration-200 hover:text-sky-400'}>{text}</Link>
+  if (node.url) text = <ALink text={text} url={node.url}/>
   return text
 }
 

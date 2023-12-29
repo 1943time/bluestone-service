@@ -1,12 +1,12 @@
 {
   "name": "personal",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "scripts": {
     "dev": "node scripts/startDetection.js && next dev",
     "build": "next build && node scripts/build.js",
     "release": "prisma db push && npm run build",
-    "start": "next start",
+    "start": "next start -p 3002",
     "lint": "next lint"
   },
   "bluestone": {
@@ -23,7 +23,7 @@
     "mermaid": "^10.6.1",
     "mime-types": "^2.1.35",
     "nanoid": "^5.0.3",
-    "next": "14.0.1",
+    "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-use": "^17.4.0",

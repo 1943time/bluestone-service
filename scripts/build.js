@@ -35,8 +35,8 @@ const packageJson = {
   bluestone: pkjson.bluestone,
   dependencies: {
     '@prisma/client': '5.5.2',
-    next: '14.0.1',
-    shiki: '0.14.5'
+    next: pkjson.dependencies.next,
+    shiki: pkjson.dependencies.shiki
   },
   devDependencies: {
     prisma: '5.5.2'

@@ -5,7 +5,9 @@ const root = join(__dirname, '../..')
 const json = JSON.parse(readFileSync(join(__dirname, '../package.json'), {encoding: 'utf-8'}))
 const oldJson = JSON.parse(readFileSync(join(root, 'package.json'), {encoding: 'utf-8'}))
 oldJson.version = json.version
+oldJson.dependencies = json.dependencies
 writeFileSync(join(root, 'package.json'), JSON.stringify(oldJson, null, 2), {encoding: 'utf-8'})
+execSync('npm i', {cwd: root})
 rmSync(join(root, '.next'), {force: true, recursive: true})
 cpSync(join(__dirname, '../.next'), join(root, '.next'), {recursive: true, force: true})
 cpSync(join(__dirname, '../prisma/schema.prisma'), join(root, 'prisma/schema.prisma'), {force: true})

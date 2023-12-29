@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021b72d0-dce8-43a4-b6e4-39be01f00153" name="Changes" comment="feat: Automatic synchronization service for file path changes">
+    <list default="true" id="021b72d0-dce8-43a4-b6e4-39be01f00153" name="Changes" comment="fix: Query errors based on device">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/book/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/book/route.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/doc/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/doc/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/file/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/file/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/ctx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ctx.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/editor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/editor.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +22,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2YqY5zeexM7CBIer6RkgZRflep0" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
@@ -42,6 +43,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
+    "npm.dev.executor": "Run",
     "ts.external.directory.path": "/Users/huangjie/bluestone/personal/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -72,6 +74,9 @@
       <option name="presentableId" value="Default" />
       <updated>1701254397387</updated>
       <workItem from="1701254398641" duration="7526000" />
+      <workItem from="1702699372979" duration="13600000" />
+      <workItem from="1703158913488" duration="3168000" />
+      <workItem from="1703488329397" duration="13439000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Automatic synchronization service for file path changes">
       <option name="closed" value="true" />

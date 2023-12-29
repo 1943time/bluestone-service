@@ -282,7 +282,7 @@ ol.m-list {
     position: absolute;
     z-index: 10;
     left: 0;
-    padding-top: 10px;
+    padding-top: 11px;
     width:32px;
     top: 0;
     border-right: 1px solid rgba(0,0,0,.5);
@@ -296,6 +296,7 @@ ol.m-list {
       left: 0;
       top: 0;
       height: 22px;
+      line-height: 22px;
       width: 32px;
       text-align: center;
     }

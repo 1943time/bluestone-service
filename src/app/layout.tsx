@@ -17,7 +17,7 @@ export default async function RootLayout({
 }) {
   const env = await getEnvs()
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
     <head>
       <link rel="icon" type="image/png" href={env?.favicon} />
     </head>

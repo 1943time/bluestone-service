@@ -27,7 +27,7 @@ export function BsContext(props: {children: React.ReactNode, preferences: any}) 
         } else if (theme === 'dark') {
           document.documentElement.classList.add('dark')
           localStorage.setItem('theme', 'dark')
-        } 
+        }
       }
     `}}/>
   )

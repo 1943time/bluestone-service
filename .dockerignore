@@ -1,0 +1,9 @@
+node_modules
+.github
+.idea
+.next
+.git
+.gitignore
+*.md
+dist
+prisma/data.db

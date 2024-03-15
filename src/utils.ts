@@ -1,42 +1,22 @@
 import 'client-only'
 import {createContext} from 'react'
 import * as Katex from 'katex'
-let collects: {value: string, lang: string, cb: (code: string) => void}[] = []
-export const highlight = async (theme?: any) => {
-  if (collects.length) {
-    const langs =  Array.from(new Set(collects.map(c => c.lang))) as string[]
-    const {getHighlighter, langSet} = await import('shiki').then(res => {
-      return {
-        getHighlighter: res.getHighlighter,
-        langSet: new Set(res.BUNDLED_LANGUAGES.map(l => [l.id, ...(l.aliases || [])]).flat(2))
-      }
-    })
 
-    const highlighter = await getHighlighter({
-      theme: theme || 'material-theme-palenight',
-      langs: langs.filter(l => langSet.has(l)) as any,
-      paths: {
-        wasm: `/shiki/`,
-        themes: `/shiki/themes/`,
-        languages: `/shiki/languages/`
-      }
+import {bundledLanguages, codeToHtml, bundledThemes} from 'shiki'
+
+export const allLanguages = Object.keys(bundledLanguages)
+export const langSet = new Set(allLanguages)
+export const codeThemes = new Set(Object.keys(bundledThemes))
+
+export const highlight = async (code: string, lang: string, theme?: string) => {
+  if (langSet.has(lang?.toLowerCase())) {
+    return codeToHtml(code, {
+      theme: codeThemes.has(theme?.toLowerCase() || '') ? theme?.toLowerCase() as any : 'slack-dark',
+      lang: lang
     })
-    for (let c of collects) {
-      if (!langSet.has(c.lang)) continue
-      try {
-        c.cb(highlighter.codeToHtml(c.value, {
-          lang: c.lang
-        }))
-      } catch (e) {
-        console.error('highlighter fail', e)
-      }
-    }
-    collects = []
+  } else {
+    return null
   }
-}
-
-export const collect = (data: typeof collects[number]) => {
-  collects.push(data)
 }
 
 let k: typeof Katex
@@ -48,6 +28,7 @@ export const getKatex = async () => {
   })
   return k
 }
+
 export async function copyToClipboard(text: string) {
   try {
     return navigator.clipboard.writeText(text)
@@ -95,9 +76,10 @@ export async function copyToClipboard(text: string) {
 export const DocCtx = createContext<{
   context?: {
     secret: '',
-
   }
+  codeBg?: string
   theme?: string
+  codeDark?: boolean
   openMenu: boolean
   openSearch: boolean
   showOutLine?: boolean

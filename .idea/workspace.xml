@@ -4,9 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021b72d0-dce8-43a4-b6e4-39be01f00153" name="Changes" comment="chore: Modify update script">
+    <list default="true" id="021b72d0-dce8-43a4-b6e4-39be01f00153" name="Changes" comment="chore: Modify build script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/build.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/initial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/startDetection.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/startDetection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/bluestone/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/bluestone/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/book/[book]/Director.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/book/[book]/Director.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/book/[book]/[[...path]]/Back.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/book/[book]/[[...path]]/Back.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/ctx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ctx.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/env.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/color.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/color.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/editor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/editor.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/tailwind.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/tailwind.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Leading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Leading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/render/Article.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Article.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/render/Code.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Code.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/render/Hihglight.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Hihglight.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/render/Katex.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Katex.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/render/Link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Link.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/render/Media.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Media.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +42,11 @@
         <option name="title" value="All" />
       </GitPushTagMode>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -29,6 +56,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2YqY5zeexM7CBIer6RkgZRflep0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,7 +69,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "v0.5.0",
     "last_opened_file_path": "/Users/huangjie/bluestone/personal",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -51,6 +81,19 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/server" />
+      <recent name="$PROJECT_DIR$/scripts" />
+      <recent name="$PROJECT_DIR$/src/app/api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/server" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -79,7 +122,15 @@
       <workItem from="1701254398641" duration="7526000" />
       <workItem from="1702699372979" duration="13600000" />
       <workItem from="1703158913488" duration="3168000" />
-      <workItem from="1703488329397" duration="16385000" />
+      <workItem from="1703488329397" duration="30819000" />
+      <workItem from="1704430080984" duration="5284000" />
+      <workItem from="1705054205539" duration="1749000" />
+      <workItem from="1706268987393" duration="1449000" />
+      <workItem from="1708775855043" duration="1950000" />
+      <workItem from="1708939261326" duration="1000" />
+      <workItem from="1709042115245" duration="2000" />
+      <workItem from="1710352361380" duration="9612000" />
+      <workItem from="1710497699878" duration="24324000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Automatic synchronization service for file path changes">
       <option name="closed" value="true" />
@@ -121,11 +172,24 @@
       <option name="project" value="LOCAL" />
       <updated>1703872612938</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="chore: Modify build script">
+      <option name="closed" value="true" />
+      <created>1703872913548</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703872913548</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/app/api/prisma.d.ts" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -135,6 +199,7 @@
     <MESSAGE value="chore: back v0.2.0" />
     <MESSAGE value="fix: Page crash caused by irregular links" />
     <MESSAGE value="chore: Modify update script" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: Modify update script" />
+    <MESSAGE value="chore: Modify build script" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: Modify build script" />
   </component>
 </project>

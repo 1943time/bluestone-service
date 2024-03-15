@@ -14,7 +14,7 @@ export function Leading(props: {
   })
   const heads = useMemo(() => {
     setState({index: -1})
-    return props.schema.filter(n => n.level > 1 && n.level < 5 && n.type === 'head').map(h => {
+    return props.schema.filter(n => n.type === 'head').map(h => {
       return {id: h.id, title: h.title, level: h.level}
     })
   }, [props.schema])
@@ -47,7 +47,7 @@ export function Leading(props: {
         <div className="leading-list">
           {heads.map((h, i) =>
             <Link
-              className={`leading-item ${i === state.index ? 'active' : ''} block`} style={{paddingLeft: (h.level - 2) * 16}}
+              className={`leading-item ${i === state.index ? 'active' : ''} block`} style={{paddingLeft: (h.level - 1) * 16}}
               key={i}
               href={`#${h.id}`}
             >

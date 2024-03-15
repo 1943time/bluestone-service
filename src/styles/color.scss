@@ -1,23 +1,27 @@
 :root{
   --bg: #fff;
-  --nav: #F9FBFE;
-  --b1: #e1e1e1;
-  --md-text: rgba(60,60,67,1);
-  --tree-bg: #EFF1F4;
-  --md-code-bg: #2a2929;
+  --nav: #fff;
+  --tab: #fafafa;
+  --b1: rgb(229 231 235 / 0.8);
+  --md-text: rgba(60,60,60);
+  --tree-bg: #fafafa;
+  --md-code-bg: white;
   --md-bg-mute: rgba(0, 0, 0, .07);
-  --md-high: rgba(60,60,60,.3);
+  --md-high: rgba(141, 141, 141, 0.5);
   --md-border: #b9b9b9;
+  --card-bg: #fff;
 }
 .dark{
-  --bg: #222222;
-  --nav: #222222;
+  --bg: #191919;
+  --nav: #191919;
+  --tab: #191919;
   --b1: rgb(229 231 235 / 0.1);
-  --md-text: rgba(255, 255, 255, 0.88);
+  --md-text: rgba(255, 255, 255, 0.82);
   --tree-bg: #1E1E1E;
+  --card-bg: #1E1E1E;
   --md-code-bg: #1c1c1c;
   --md-bg-mute: rgba(255, 255, 255, .1);
-  --md-high: #6b7280;
+  --md-high: rgba(255, 255, 255, .2);
   --md-border: #3f3f46;
 }
 

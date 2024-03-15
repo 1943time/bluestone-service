@@ -59,9 +59,6 @@ export function Header(props: {
             </> :
             null
           }
-          {!props.book &&
-            <Article className={'w-5 h-5 fill-gray-700 dark:fill-gray-300 mr-1'}/>
-          }
           <Link className={'max-w-[calc(100vw_-_170px)] truncate'} href={''}>
             {decodeURIComponent(props.title)}
           </Link>

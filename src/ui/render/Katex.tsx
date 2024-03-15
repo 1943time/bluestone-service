@@ -19,7 +19,7 @@ export default function Katex({node, inline}: { node: any, inline?: boolean }) {
   }, [])
   if (inline) return <span ref={ref}></span>
   return (
-    <div ref={ref} className={`mb-4`}></div>
+    <div ref={ref} className={`mb-4 py-2`}></div>
   )
 }
 

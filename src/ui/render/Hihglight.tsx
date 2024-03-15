@@ -1,14 +1,11 @@
 'use client'
 
-import {useCallback, useContext, useEffect, useLayoutEffect} from 'react'
-import {getKatex, highlight, TreeContext} from '@/utils'
+import {useCallback, useEffect} from 'react'
+import {getKatex} from '@/utils'
 
 export function Highlight(props: {
   theme?: string
 }) {
-  useLayoutEffect(() => {
-    highlight(props.theme)
-  }, [])
   const click = useCallback((e: MouseEvent) => {
     const el = e.target as HTMLDivElement
     if (!el) return

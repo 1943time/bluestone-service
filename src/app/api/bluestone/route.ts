@@ -1,7 +1,6 @@
 import {NextRequest, NextResponse} from 'next/server'
 import {createHmac} from 'crypto'
 import prisma from '@/app/api/prisma'
-import process from 'process'
 import {getPackageJson} from '@/app/api/utils'
 import {getEnvs} from '@/app/env'
 export async function GET(req: NextRequest) {
@@ -42,7 +41,6 @@ export async function POST(req: NextRequest) {
     where: {id: data.machineId},
     select: {id: true}
   })
-
   if (!record) {
     record = await prisma.device.create({
       data: {

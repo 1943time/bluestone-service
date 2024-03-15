@@ -81,23 +81,3 @@ model File {
   bookId   String?
   book     Book?    @relation(fields: [bookId], references: [id], onDelete: Restrict)
 }
-
-// model FolderBackup {
-//   id       String       @id @default(cuid())
-//   name     String       @unique
-//   filePath String
-//   created  DateTime     @default(now())
-//   files    BackupFile[]
-// }
-//
-// model BackupFile {
-//   id         String       @id @default(cuid())
-//   filePath   String
-//   name       String
-//   markdown   String?
-//   hash       String?
-//   size       Int
-//   modifyTime String
-//   folderId   String
-//   folder     FolderBackup @relation(fields: [folderId], references: [id])
-// }

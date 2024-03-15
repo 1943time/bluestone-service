@@ -1,5 +1,4 @@
 import {Fragment, createElement, useCallback, CSSProperties} from 'react'
-import Link from 'next/link'
 import {escapeScript, getId, getNodeString} from '@/common'
 import {CodeContainer} from '@/ui/render/CodeContainer'
 import {Media} from '@/ui/render/Media'
@@ -34,7 +33,7 @@ const getText = (node: any, prePath?: string) => {
   // if (node.url) text = <Link
   //   href={/^[a-zA-Z]:\/\//.test(node.url) ? node.url : `${node.url}`} target={node.url.startsWith('http') ? '_blank' : ''}
   //   rel={'noreferrer'}
-  //   className={'text-sky-500 dark:hover:text-sky-600 duration-200 hover:text-sky-400'}>{text}</Link>
+  //   className={'text-indigo-500 dark:hover:text-indigo-600 duration-200 hover:text-indigo-400'}>{text}</Link>
   if (node.url) text = <ALink text={text} url={node.url}/>
   return text
 }
@@ -74,19 +73,21 @@ function Render(props: {
             }
             {s.type === 'list' &&
               createElement(s.order ? 'ol' : 'ul', {
-                className: 'm-list'
+                className: 'm-list',
+                ['data-task']: s.task ? 'true' : undefined
               }, <Render schema={s.children} path={path}/>)
             }
             {s.type === 'list-item' &&
               <li className={`m-list-item ${typeof s.checked === 'boolean' ? 'task' : ''}`}>
                 {typeof s.checked === 'boolean' &&
-                  <span className={'absolute left-0 top-[1px]'}>
-                  <input
-                    type={'checkbox'}
-                    defaultChecked={s.checked}
-                    className={'w-[14px] h-[14px] align-baseline'}
-                  />
-                </span>
+                  <span className={'absolute left-0 top-0 flex items-center'} style={{height: '1.87em'}}>
+                    <input
+                      type={'checkbox'}
+                      readOnly={true}
+                      defaultChecked={s.checked}
+                      className={'w-[14px] h-[14px] align-baseline'}
+                    />
+                  </span>
                 }
                 <Render schema={s.children} path={path}/>
               </li>

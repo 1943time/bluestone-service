@@ -1,8 +1,10 @@
 'use client'
-import {useServerInsertedHTML} from 'next/navigation'
-import React, {ReactNode} from 'react'
+import React, {ReactNode, useLayoutEffect} from 'react'
 import {DocCtx, EnvCtx, isDark} from '@/utils'
 import {useSetState, useUpdateEffect} from 'react-use'
+import {bundledThemes} from 'shiki'
+import Script from 'next/script'
+const codeThemes = new Set(Object.keys(bundledThemes))
 
 
 export function BsContext(props: {children: React.ReactNode, preferences: any}) {
@@ -10,11 +12,46 @@ export function BsContext(props: {children: React.ReactNode, preferences: any}) 
     theme: '',
     openMenu: false,
     openSearch: false,
-    showOutLine: false
+    showOutLine: false,
+    codeBg: '',
+    codeDark: false
   })
-  useServerInsertedHTML(() =>
-    <script dangerouslySetInnerHTML={{__html: `
-      if (location.pathname.length > 1) {
+  useLayoutEffect(() => {
+    const codeTheme = codeThemes.has(props.preferences.codeTheme) ? props.preferences.codeTheme as any : 'slack-dark'
+    bundledThemes[codeTheme as keyof typeof bundledThemes]?.().then(res => {
+      setState({
+        codeBg: res.default.colors?.['editor.background'],
+        codeDark: res.default.type === 'dark'
+      })
+    })
+    setState({
+      codeDark: localStorage.getItem( 'theme') === 'dark'
+    })
+  }, [])
+  useUpdateEffect(() => {
+    if (state.theme === 'dark' || (state.theme === 'system' && isDark())) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  }, [state.theme])
+
+  return (
+    <DocCtx.Provider value={{
+      ...state,
+      setState,
+      openSearch: state.openSearch,
+      codeBg: state.codeBg,
+      codeDark: state.codeDark,
+      preferences: {
+        ...props.preferences,
+        codeTheme: codeThemes.has(props.preferences.codeTheme) ? props.preferences.codeTheme as any : 'slack-dark'
+      }
+    }}>
+      <Script>
+        {`if (location.pathname.length > 1) {
         var theme = localStorage.getItem('theme')
         if (!theme || theme === 'system') {
           var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -28,25 +65,8 @@ export function BsContext(props: {children: React.ReactNode, preferences: any}) 
           document.documentElement.classList.add('dark')
           localStorage.setItem('theme', 'dark')
         }
-      }
-    `}}/>
-  )
-  useUpdateEffect(() => {
-    if (state.theme === 'dark' || (state.theme === 'system' && isDark())) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }, [state.theme])
-  return (
-    <DocCtx.Provider value={{
-      ...state,
-      setState,
-      openSearch: state.openSearch,
-      preferences: props.preferences
-    }}>
+      }`}
+      </Script>
       {props.children}
     </DocCtx.Provider>
   )

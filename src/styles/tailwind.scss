@@ -5,7 +5,15 @@ html {
   scroll-behavior: smooth;
   font-family: system-ui, sans-serif;
 }
-
+h1.heading:first-child {
+  @apply border-b dark:border-gray-200/10 border-gray-200 mb-4 py-2;
+}
+.code-highlight {
+  @apply dark:text-gray-400 text-gray-500;
+  pre code{
+    line-height: 23px;
+  }
+}
 .scroll-def{
   scroll-behavior: auto;
 }
@@ -19,7 +27,8 @@ html {
   }
 
   .header {
-    @apply dark:bg-[rgba(34,34,34,.8)] bg-[rgba(255,255,255,.8)] fixed left-0 top-0 w-full h-12 border-b border-gray-100 dark:border-white/5 flex justify-center z-50 backdrop-blur-lg;
+    background-color: var(--bg);
+    @apply fixed left-0 top-0 w-full h-12 flex justify-center z-50;
   }
 
   .header-content {
@@ -30,7 +39,7 @@ html {
     @apply flex justify-center w-full min-h-screen;
     .content {
       @apply pt-16 pb-20 flex-1 px-6 md:px-8;
-      max-width: min(900px, 100vw);
+      max-width: min(780px, 100vw);
     }
   }
 
@@ -40,7 +49,7 @@ html {
 
   .content {
     .link{
-      @apply text-sky-500 hover:text-sky-600 duration-200 cursor-pointer;
+      @apply text-indigo-500 hover:text-indigo-600 duration-200 cursor-pointer;
     }
     pre{
       overflow: auto;
@@ -58,7 +67,6 @@ html {
     }
 
     .heading {
-      @apply border-b dark:border-gray-200/10 border-gray-200 py-2;
       &:before {
         content: '#';
         display: block;
@@ -68,7 +76,7 @@ html {
         transform: translateY(-50%);
         font-size: 22px;
         opacity: 0;
-        @apply font-bold text-sky-500;
+        @apply font-bold text-indigo-500;
       }
 
       &:hover:before {
@@ -106,13 +114,13 @@ html {
     }
 
     &-list {
-      @apply dark:text-gray-400 text-gray-500 text-[13px] leading-5 flex-1;
+      @apply dark:text-gray-400 text-gray-500 text-sm leading-5 flex-1;
     }
 
     &-item {
       @apply cursor-pointer dark:hover:text-gray-200 hover:text-gray-700 py-1 block;
       &.active {
-        @apply text-sky-500;
+        @apply text-indigo-500;
       }
     }
   }
@@ -155,7 +163,7 @@ html {
     @apply flex relative items-center rounded cursor-pointer text-gray-600 dark:hover:bg-white/5 hover:bg-gray-200/30 font-medium
     hover:text-gray-700 dark:hover:text-gray-100 dark:text-gray-400 leading-6 text-sm px-2 py-1;
     &.active {
-      @apply text-sky-500 dark:bg-white/5 hover:text-sky-500 bg-gray-200/30;
+      @apply text-indigo-500 dark:bg-white/5 hover:text-indigo-500 bg-gray-200/30;
     }
     &.dir{
       @apply hover:bg-none dark:hover:bg-none;
@@ -182,7 +190,7 @@ html {
   dark:border-gray-600/50 border-gray-300 flex-1 py-2 px-5 cursor-pointer duration-200;
 }
 .paging-name{
-  @apply text-sm mt-1 text-sky-500 font-medium group-hover:text-sky-600 duration-200;
+  @apply text-sm mt-1 text-indigo-500 font-medium group-hover:text-indigo-600 duration-200;
 }
 
 th,td{
@@ -215,7 +223,7 @@ th,td{
 .home-list{
   li{
     &::marker{
-      @apply text-sky-500;
+      @apply text-indigo-500;
     }
   }
 }

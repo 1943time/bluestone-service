@@ -6,10 +6,12 @@ import {useParams} from 'next/navigation'
 import Link from 'next/link'
 import ArrowRight from '@/ui/icons/ArrowRight'
 import {useSetState} from 'react-use'
+import IBook from '@/ui/icons/IBook'
 export function DirectoryFrame(props: {
   map: any[]
 }) {
   const ctx = useContext(DocCtx)
+  const params = useParams()
   const [state, setState] = useSetState({
     visible: false,
     show: false
@@ -34,6 +36,17 @@ export function DirectoryFrame(props: {
   return (
     <>
       <div className={`director ${ctx.openMenu ? 'open' : ''}`}>
+        <div>
+          <div
+            className="header-name mb-4 lg:hidden"
+          >
+            <IBook className={'w-5 h-5 fill-gray-700 dark:fill-gray-300'}/>
+            <span className={'mx-2 dark:text-gray-200/30 font-light text-gray-300'}>/</span>
+            <Link className={'max-w-[calc(100vw_-_170px)] truncate'} href={''}>
+              {decodeURIComponent(params.book as string)}
+            </Link>
+          </div>
+        </div>
         <Directory map={props.map} level={0}/>
         <div className={'cover'}></div>
       </div>
@@ -46,6 +59,7 @@ export function DirectoryFrame(props: {
     </>
   )
 }
+
 function Directory({map, level}: {
   map: any[]
   level: number

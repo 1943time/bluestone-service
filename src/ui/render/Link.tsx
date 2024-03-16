@@ -7,7 +7,11 @@ export function ALink(props: {url: string, text: string}) {
   const params = useParams()
   const url = useMemo(() => {
     if (props.url.startsWith('http')) return props.url as string
-    return `/book/${params.book}/` + props.url
+    if (props.url.startsWith('#')) return props.url
+    if (params.book) {
+      return `/book/${params.book}/` + props.url
+    }
+    return props.url
   }, [props.url])
   return (
     <a

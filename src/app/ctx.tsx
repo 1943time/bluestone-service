@@ -50,7 +50,7 @@ export function BsContext(props: {children: React.ReactNode, preferences: any}) 
         codeTheme: codeThemes.has(props.preferences.codeTheme) ? props.preferences.codeTheme as any : 'slack-dark'
       }
     }}>
-      <Script>
+      <Script strategy={'beforeInteractive'}>
         {`if (location.pathname.length > 1) {
         var theme = localStorage.getItem('theme')
         if (!theme || theme === 'system') {

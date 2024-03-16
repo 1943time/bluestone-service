@@ -6,29 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="021b72d0-dce8-43a4-b6e4-39be01f00153" name="Changes" comment="chore: Modify build script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/initial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/startDetection.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/startDetection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/bluestone/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/bluestone/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/book/[book]/Director.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/book/[book]/Director.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/book/[book]/[[...path]]/Back.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/book/[book]/[[...path]]/Back.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/ctx.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ctx.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/env.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/color.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/color.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/editor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/editor.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/tailwind.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/tailwind.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Leading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Leading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/render/Article.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Article.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/render/Code.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Code.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/render/Hihglight.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Hihglight.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/render/Katex.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Katex.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/render/Link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Link.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/render/Media.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/render/Media.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/upgrade.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/upgrade.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "v0.5.0",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/huangjie/bluestone/personal",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

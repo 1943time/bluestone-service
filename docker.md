@@ -1,5 +1,3 @@
-Adding Docker compose for easy one click deployment
-
 ## Deployment Instructions
 To deploy the Bluestone service, follow these steps:
 

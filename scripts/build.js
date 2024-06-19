@@ -1,4 +1,4 @@
-const { join , dirname} = require('path')
+const { join} = require('path')
 const { existsSync, rmSync, mkdirSync, cpSync, readFileSync, writeFileSync } = require('fs')
 const dist = join(__dirname, '../dist')
 if (existsSync(dist)) rmSync(dist, {recursive: true, force: true})
@@ -24,13 +24,14 @@ cpSync(join(__dirname, '../ecosystem.config.js'), join(dist, 'ecosystem.config.j
 mkdirSync(join(dist, 'scripts'))
 cpSync(join(__dirname, 'initial.js'), join(dist, 'scripts/initial.js'))
 cpSync(join(__dirname, 'upgrade.js'), join(dist, 'scripts/upgrade.js'))
+cpSync(join(__dirname, '../Dockerfile'), join(dist, 'Dockerfile'))
+cpSync(join(__dirname, '../.dockerignore'), join(dist, '.dockerignore'))
 
 const packageJson = {
   name: 'bluestone',
   version: pkjson.version,
   scripts: {
-    start: 'next start -p 80',
-    init: "node scripts/initial.js"
+    start: 'node scripts/initial.js && next start -p 80'
   },
   bluestone: pkjson.bluestone,
   dependencies: {

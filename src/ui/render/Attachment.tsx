@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import Link from 'next/link'
 import { ILink } from '../icons/ILink'
 
@@ -15,7 +14,7 @@ export function Attachment({ node, path }: { node: any, path: number[] }) {
                   'px-1.5 py-0.5 rounded flex items-center bg-teal-500 text-white text-xs font-semibold'
                 }
               >
-                {node.name?.match(/\.(\w+)/)?.[1]}
+                {node.url?.match(/\.(\w+)$/)?.[1] || 'File'}
               </div>
               <div className={'mx-3 break-all'}>{node.name}</div>
             </div>

@@ -2,23 +2,6 @@ import 'client-only'
 import {createContext} from 'react'
 import * as Katex from 'katex'
 
-import {bundledLanguages, codeToHtml, bundledThemes} from 'shiki'
-
-export const allLanguages = Object.keys(bundledLanguages)
-export const langSet = new Set(allLanguages)
-export const codeThemes = new Set(Object.keys(bundledThemes))
-
-export const highlight = async (code: string, lang: string, theme?: string) => {
-  if (langSet.has(lang?.toLowerCase())) {
-    return codeToHtml(code, {
-      theme: codeThemes.has(theme?.toLowerCase() || '') ? theme?.toLowerCase() as any : 'slack-dark',
-      lang: lang
-    })
-  } else {
-    return null
-  }
-}
-
 let k: typeof Katex
 export const getKatex = async () => {
   if (k) return k

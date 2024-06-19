@@ -33,7 +33,7 @@ const getText = (node: any, prePath?: string) => {
   // if (node.url) text = <Link
   //   href={/^[a-zA-Z]:\/\//.test(node.url) ? node.url : `${node.url}`} target={node.url.startsWith('http') ? '_blank' : ''}
   //   rel={'noreferrer'}
-  //   className={'text-indigo-500 dark:hover:text-indigo-600 duration-200 hover:text-indigo-400'}>{text}</Link>
+  //   className={'text-blue-500 dark:hover:text-blue-600 duration-200 hover:text-blue-400'}>{text}</Link>
   if (node.url) text = <ALink text={text} url={node.url}/>
   return text
 }

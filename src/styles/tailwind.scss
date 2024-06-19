@@ -39,7 +39,7 @@ h1.heading:first-child {
     @apply flex justify-center w-full min-h-screen;
     .content {
       @apply pt-16 pb-20 flex-1 px-6 md:px-8;
-      max-width: min(780px, 100vw);
+      max-width: min(760px, 100vw);
     }
   }
 
@@ -49,7 +49,7 @@ h1.heading:first-child {
 
   .content {
     .link{
-      @apply text-indigo-500 hover:text-indigo-600 duration-200 cursor-pointer;
+      @apply text-blue-500 hover:text-blue-600 duration-200 cursor-pointer;
     }
     pre{
       overflow: auto;
@@ -76,7 +76,7 @@ h1.heading:first-child {
         transform: translateY(-50%);
         font-size: 22px;
         opacity: 0;
-        @apply font-bold text-indigo-500;
+        @apply font-bold text-blue-500;
       }
 
       &:hover:before {
@@ -120,7 +120,7 @@ h1.heading:first-child {
     &-item {
       @apply cursor-pointer dark:hover:text-gray-200 hover:text-gray-700 py-1 block;
       &.active {
-        @apply text-indigo-500;
+        @apply text-blue-500;
       }
     }
   }
@@ -161,9 +161,9 @@ h1.heading:first-child {
 
   .d-title {
     @apply flex relative items-center rounded cursor-pointer text-gray-600 dark:hover:bg-white/5 hover:bg-gray-200/30 font-medium
-    hover:text-gray-700 dark:hover:text-gray-100 dark:text-gray-400 leading-6 text-sm px-2 py-1;
+    hover:text-gray-700 dark:hover:text-gray-100 dark:text-gray-400 text-sm px-2 py-[5px];
     &.active {
-      @apply text-indigo-500 dark:bg-white/5 hover:text-indigo-500 bg-gray-200/30;
+      @apply text-gray-700 dark:text-gray-100 dark:bg-white/5 bg-gray-200/30;
     }
     &.dir{
       @apply hover:bg-none dark:hover:bg-none;
@@ -182,7 +182,7 @@ h1.heading:first-child {
 }
 
 .link{
-  @apply text-blue-600 hover:text-blue-400 duration-200;
+  @apply dark:text-white/70 hover:dark:text-white/90 underline duration-200;
 }
 .paging{
   font-size: 14px;
@@ -190,7 +190,7 @@ h1.heading:first-child {
   dark:border-gray-600/50 border-gray-300 flex-1 py-2 px-5 cursor-pointer duration-200;
 }
 .paging-name{
-  @apply text-sm mt-1 text-indigo-500 font-medium group-hover:text-indigo-600 duration-200;
+  @apply text-sm mt-1 text-blue-500 font-medium group-hover:text-blue-600 duration-200;
 }
 
 th,td{
@@ -206,9 +206,22 @@ th,td{
   }
 }
 
+.paging-item {
+  @apply text-sm text-gray-500 dark:text-gray-400 flex flex-col justify-center;
+  .tip {
+    @apply text-[13px] mb-1 text-gray-400 dark:text-gray-500 duration-200;
+  }
+  .name {
+    @apply flex items-center md:max-w-[300px];
+    span {
+      @apply inline-block break-words;
+      max-width: max(150px, 36vw);
+    }
+  }
+}
 
 .header-icon{
-  @apply dark:hover:bg-gray-200/10 hover:bg-gray-100 duration-200
+  @apply dark:hover:bg-white/10 hover:bg-gray-200/70 duration-200
   rounded cursor-pointer items-center justify-center
   font-bold dark:text-gray-400 text-gray-600;
 }
@@ -223,7 +236,7 @@ th,td{
 .home-list{
   li{
     &::marker{
-      @apply text-indigo-500;
+      @apply text-blue-500;
     }
   }
 }

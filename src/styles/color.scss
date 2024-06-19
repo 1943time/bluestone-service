@@ -3,26 +3,60 @@
   --nav: #fff;
   --tab: #fafafa;
   --b1: rgb(229 231 235 / 0.8);
-  --md-text: rgba(60,60,60);
+  --md-text: rgba(45,45,40);
   --tree-bg: #fafafa;
-  --md-code-bg: white;
-  --md-bg-mute: rgba(0, 0, 0, .07);
+  --md-code-bg: #2a2929;
+  --md-bg-mute: rgba(23, 23, 23, .07);
   --md-high: rgba(141, 141, 141, 0.5);
   --md-border: #b9b9b9;
   --card-bg: #fff;
 }
+
 .dark{
   --bg: #191919;
   --nav: #191919;
   --tab: #191919;
   --b1: rgb(229 231 235 / 0.1);
-  --md-text: rgba(255, 255, 255, 0.82);
+  --md-text: rgba(255, 255, 255, 0.85);
   --tree-bg: #1E1E1E;
   --card-bg: #1E1E1E;
   --md-code-bg: #1c1c1c;
-  --md-bg-mute: rgba(255, 255, 255, .1);
+  --md-bg-mute: rgba(255, 255, 255, .07);
   --md-high: rgba(255, 255, 255, .2);
   --md-border: #3f3f46;
+}
+
+html.dark{
+  color-scheme: dark;
+}
+
+.code-bg{
+  background: var(--md-code-bg);
+}
+.def-bg{
+  background: var(--bg);
+}
+.card-bg{
+  background: var(--card-bg);
+}
+.tree-bg{
+  background: var(--tree-bg);
+}
+.nav{
+  background: var(--nav);
+}
+.b1{
+  border-color: var(--b1);
+}
+.b2{
+  @apply border-gray-200 dark:border-gray-200/10;
+}
+
+.md-text{
+  color: var(--md-text);
+}
+html{
+  background: var(--bg);
 }
 
 .def-bg{

@@ -1,6 +1,6 @@
 {
   "name": "personal",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "dev": "node scripts/startDetection.js && next dev",
@@ -20,14 +20,14 @@
     "compare-versions": "^6.1.0",
     "diacritics": "^1.3.0",
     "katex": "^0.16.9",
-    "mermaid": "^10.6.1",
+    "mermaid": "^10.9.1",
     "mime-types": "^2.1.35",
     "nanoid": "^5.0.3",
     "next": "14.1.3",
     "react": "^18",
     "react-dom": "^18",
     "react-use": "^17.4.0",
-    "shiki": "^1.2.0",
+    "shiki": "^1.7.0",
     "upath": "^2.0.1"
   },
   "devDependencies": {

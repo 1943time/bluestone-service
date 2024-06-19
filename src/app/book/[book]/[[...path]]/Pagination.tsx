@@ -4,7 +4,7 @@ import {useContext, useMemo} from 'react'
 import {TreeContext} from '@/utils'
 import {useParams} from 'next/navigation'
 import Link from 'next/link'
-
+import ArrowRight from '../../../../ui/icons/ArrowRight'
 export function Pagination() {
   const tree = useContext(TreeContext)
   const params = useParams()
@@ -19,34 +19,52 @@ export function Pagination() {
   }, [index])
   if (tree.docs.length < 2) return null
   return (
-    <div className="mt-10">
-      <div className="h-[1px] w-full dark:bg-gray-600/50 bg-gray-300"></div>
-      <div className="flex justify-between mt-4 md:space-x-10 flex-col md:flex-row">
+    <div className='mt-10'>
+      <div className='h-[1px] w-full dark:bg-gray-600/30 bg-gray-200'></div>
+      <div className='flex justify-between items-start mt-6 md:space-x-10'>
         {index > 0 ? (
           <Link
-            className="flex-1 md:mb-0 mb-3" href={paths.prev}
+            className={'paging-item group'}
+            href={paths.prev}
             onClick={() => {
-              tree.selectPath(tree.docs[index - 1]?.path)}
-            }
+              tree.selectPath(tree.docs[index - 1]?.path)
+            }}
           >
-            <div className="paging group">
-              <span className="text-xs dark:text-zinc-400 text-zinc-600">Previous page</span>
-              <span className="paging-name truncate w-full">{paths.prev.split('/').pop()}</span>
+            <span
+              className={
+                'tip group-hover:text-gray-600 dark:group-hover:text-gray-200 pl-5'
+              }
+            >
+              Previous
+            </span>
+            <div className={'name flex'}>
+              <ArrowRight
+                className={`w-[14px] h-[14px] mr-1 rotate-180 flex-shrink-0`}
+              />
+              <span>{paths.prev.split('/').pop()}</span>
             </div>
           </Link>
         ) : (
-          <div className={'flex-1'}></div>
+          <div></div>
         )}
         {index < tree.docs.length - 1 ? (
           <Link
-            className="flex-1 md:mb-0 mb-3" href={paths.next}
+            className={'paging-item group'}
+            href={paths.next}
             onClick={() => {
               tree.selectPath(tree.docs[index + 1]?.path)
             }}
           >
-            <div className="paging group">
-              <span className="text-xs dark:text-zinc-400 text-zinc-600">Next page</span>
-              <span className="paging-name truncate w-full">{paths.next.split('/').pop()}</span>
+            <span
+              className={
+                'tip group-hover:text-gray-600 dark:group-hover:text-gray-200 pr-5'
+              }
+            >
+              Next
+            </span>
+            <div className={'name'}>
+              <span>{paths.next.split('/').pop()}</span>
+              <ArrowRight className={`w-[14px] h-[14px] ml-1`} />
             </div>
           </Link>
         ) : (

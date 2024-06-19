@@ -12,7 +12,7 @@ export function BackToFirst() {
         <span className={'text-xl font-semibold'}>Document not found</span>
       </div>
       <span
-        className={'mt-2 text-sm text-indigo-500 duration-200 dark:hover:text-indigo-600 cursor-pointer hover:text-indigo-400'}
+        className={'mt-2 text-sm text-blue-500 duration-200 dark:hover:text-blue-600 cursor-pointer hover:text-blue-400'}
         onClick={tree.toFirstChapter}
       >
         Back to first chapter

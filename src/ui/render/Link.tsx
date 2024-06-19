@@ -15,8 +15,14 @@ export function ALink(props: {url: string, text: string}) {
   }, [props.url])
   return (
     <a
-      href={url} target={props.url.startsWith('http') ? '_blank' : ''}
+      href={url}
+      target={props.url.startsWith('http') ? '_blank' : ''}
       rel={'noreferrer'}
-      className={'text-indigo-500 dark:hover:text-indigo-600 duration-200 hover:text-indigo-400'}>{props.text}</a>
+      className={
+        'text-black/70 hover:text-black/90 dark:text-white/70 hover:dark:text-white/90 duration-200 underline'
+      }
+    >
+      {props.text}
+    </a>
   )
 }

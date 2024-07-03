@@ -1,7 +1,6 @@
 node_modules
 .github
 .idea
-.next
 .git
 .gitignore
 *.md

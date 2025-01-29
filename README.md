@@ -1,5 +1,3 @@
 # Bluestone service
 
-It helps bluestone editor to share native markdown documents in a minimalist way. 
-
-Please see the link for [details](https://github.com/1943time/bluestone).
+This project has stopped maintenance and new projects have been moved to [Inkdown Book](https://github.com/1943time/inkdown-book).
